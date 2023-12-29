@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[StudentsController::class,"nonArgsIndex"])->name('actions');
+
+
+Route::get('/students/{class_id}/{group_id}', [StudentsController::class,'index'])->name('students.list');
+
+Route::delete('/students/{id}',StudentsController::class .'@destroy')->name('students.destroy');
+
+
+
