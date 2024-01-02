@@ -11,10 +11,12 @@
 </section>
 
 <div class="px-10 py-5 bg-slate-200">
+
+@if(isset($current_class) || isset($group_name))
  <h2 class="font-bold">
         Current class name : 
         <span class="font-normal">
-            @if(isset($current_class))
+            @if(isset($current_class[0]->class_name))
             {{$current_class[0]->class_name}}
             @endif
         </span> 
@@ -22,11 +24,16 @@
     <h2 class="font-bold">
         Current group name : 
         <span class="font-normal">
-            @if(isset($group_name))
+            @if(isset($group_name[0]->group_name))
             {{$group_name[0]->group_name}}
             @endif
         </span> 
     </h2>
+@else
+    <h2 class="font-bold">All students from tenant</h2>
+@endif  
+
+  
 </div>
 
 <section class="w-full justify-center flex bg-slate-800">
@@ -49,12 +56,14 @@
                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</button>
                     <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Move</button>
-
-                    <form id='delete_form' action="{{ route('students.destroy', $student->id) }}" method="post">
+                  
+                    @if(isset($group_name[0]->id) && isset($current_class[0]->id))
+                    <form id='delete_form' action="{{ route('students.destroy', ['id'=>$student->id, 'group_id'=>$group_name[0]->id, 'class_id'=>$current_class[0]->id]) }}" method="post">
                           @csrf
                           @method('DELETE')
                          <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Remove</button>  
                     </form>
+                    @endif
                 </div>
                 @endif
             </div>

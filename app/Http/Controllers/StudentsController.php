@@ -20,7 +20,7 @@ class StudentsController extends Controller
 
             $currentClass = DB::table('classes')->select('class_name','id')->where('id',$class_id)->get();
 
-            $currentGroup = DB::table('groups')->select('group_name')->where('id',$group_id)->get();
+            $currentGroup = DB::table('groups')->select('group_name','id')->where('id',$group_id)->get();
 
 
             return view('home',['students'=> $students,  'groups'=>$groups, 'group_id'=>$group_id, 'group_name'=>$currentGroup,'classes' =>$classrooms,'current_class'=>$currentClass]);
@@ -35,13 +35,13 @@ class StudentsController extends Controller
     }
 
 
-    public function destroy($id){
+    public function destroy($id, $group_id, $class_id){
         $student = Students::find($id);
         
         if(isset($student)){
             $student->delete();
         }
 
-        return redirect()->route("actions");
+      return redirect()->route("students.list", ['class_id' => $class_id, 'group_id' => $group_id]);
     }
 }
