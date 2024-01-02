@@ -16,7 +16,7 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <a href="{{route('actions')}}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Students</a>
-            <a href="{{route('actions')}}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Teachers</a>
+            <a href="{{route('teachers')}}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Teachers</a>
           </div>
         </div>
       </div>

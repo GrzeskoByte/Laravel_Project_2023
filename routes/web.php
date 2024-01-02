@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\TeachersController;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -19,10 +20,9 @@ Route::get('/' , function(){
 });
 
 Route::get('/students',[StudentsController::class,"nonArgsIndex"])->name('actions');
-
 Route::get('/students/{class_id}/{group_id}', [StudentsController::class,'index'])->name('students.list');
 
 Route::delete('/students/{id}/{class_id}/{group_id}/',StudentsController::class .'@destroy')->name('students.destroy');
 
 
-
+Route::get('/teachers', [TeachersController::class,"index"])->name('teachers');
