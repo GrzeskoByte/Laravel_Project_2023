@@ -7,7 +7,7 @@
 @section('content')
 
 <section class="w-full min-h-32 max-h-80 h-3/5 bg-slate-500 flex justify-center px-4 py-8">
-    <h2 class="font-bold italic text-5xl"> Students Management </h2>
+    <h2 class="font-bold italic text-5xl"> Students </h2>
 </section>
 
 <div class="px-10 py-5 bg-slate-200">
