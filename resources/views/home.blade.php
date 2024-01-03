@@ -63,7 +63,7 @@
                             Edit
                         </a>
                     </button>
-                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Move</button>
+
                   
                     @if(isset($group_name[0]->id) && isset($current_class[0]->id))
                     <form id='delete_form' action="{{ route('students.destroy', ['id'=>$student->id, 'group_id'=>$group_name[0]->id, 'class_id'=>$current_class[0]->id]) }}" method="post">

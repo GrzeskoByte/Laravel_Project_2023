@@ -50,19 +50,23 @@ class StudentsController extends Controller
     public function edit($type,$id){
         $user = NULL;
 
+        $groups = DB::table('groups')->select('id','group_name','class_id')->get();
+
         if($type == "student"){
-            $user = DB::table('students')->select('first_name','last_name','email','phone','id')->where('id', $id)->get();
+            $user = DB::table('students')->select('first_name','last_name','email','phone','id','group_id')->where('id', $id)->get();
         }
 
         if($type == 'teacher'){
             $user = DB::table('teachers')->select('first_name','last_name','email','phone','id')->where('id', $id)->get();
         }
 
-       return view('edit', ['id'=>$id,'user'=>$user[0], 'type'=>$type]); 
+       return view('edit', ['id'=>$id,'user'=>$user[0], 'type'=>$type,'groups'=>$groups]); 
     }
 
     public function editUser(Request $request,$type,$id){
-        
+        echo $request->input('first_name');
+        echo $request->input('group_id');
+
         if($type == 'student'){
             $user = Students::find($id);    
 
@@ -72,6 +76,7 @@ class StudentsController extends Controller
                     'last_name'  => $request->input('last_name'),
                     'email'      => $request->input('email'),
                     'phone'      => $request->input('phone'),
+                    'group_id'   => $request->input('group_id')
                 ]);
             }
         }
