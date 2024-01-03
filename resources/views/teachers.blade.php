@@ -9,7 +9,7 @@
 </section>
 
 <div class="px-10 py-5 bg-slate-200">
-    <h2 class="font-bold">All students from tenant</h2>
+    <h2 class="font-bold">All teachers from tenant</h2>
 </div>
 
 <section class="w-full justify-center flex bg-slate-800">
@@ -30,7 +30,11 @@
                 </div>
                 @if(isset($student->id))
                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</button>
+                <button type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                        <a href="{{route('users.edit',['id'=>$student->id,'type'=>'teacher'])}}">
+                            Edit
+                        </a>
+                    </button>
                     <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Move</button>
                   
                     @if(isset($group_name[0]->id) && isset($current_class[0]->id))

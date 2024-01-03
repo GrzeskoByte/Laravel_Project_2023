@@ -27,20 +27,26 @@
      
         <option disabled selected value="">Change group</option>
      
+      @if(isset($groups))
 
       @foreach($groups as $group)
-        @if($group->group_name)
+      
+      @if($group->group_name)
           <option value="{{$group->id}}" >
             {{$group->group_name}}
           </option>
         @endif
       @endforeach
       
+      @endif 
+
       </select>
 
      <select id="class_select" class="mx-5 w-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
      
        <option disabled selected value="">Change classroom</option>
+
+      @if(isset($classes))
 
       @foreach($classes as $class)
         @if($class->class_name)
@@ -49,6 +55,8 @@
           </option>
         @endif
       @endforeach
+
+      @endif
       
       </select>
 
