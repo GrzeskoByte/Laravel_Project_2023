@@ -9,19 +9,20 @@
 </section>
 
 <div class="bg-white overflow-hidden shadow rounded-lg border">
-    <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Teacher from class: 
-            <span class="underline">
-                {{$class_name[0]->class_name}}
-            </span>
-        </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            This is some information about the teacher.
-        </p>
-    </div>
+ 
     <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
         <dl class="sm:divide-y sm:divide-gray-200">
+<div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-black-900 text-bold">
+                 
+            This is some information about the teacher.
+          
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                 
+                </dd>
+            </div>
+
             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
                     Full name
@@ -56,23 +57,40 @@
                     {{$teacher[0]->phone}}
                 </dd>
             </div>
-            
-        <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                Permissions to classes    
-            </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                </dd>
-            </div>
-            @foreach($allowed_groups as $group)
             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-            </dt>
+                <dt class="text-sm font-medium text-black-900 text-bold">
+                   Classes and groups permissions 
+                </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {{$group->group_name}}
                 </dd>
             </div>
-            @endforeach
+           
+                    @foreach($assigned_classes as $class)
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                               Class 
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+                                 <button type="button"  class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                                    {{$class->class_name}}
+                                 </button>
+                                
+                                        <dt class="text-sm font-medium text-gray-500">
+                                            Allowed Groups
+                                            </dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                                        @foreach($assigned_classes as $class)
+                                                             <button type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+                                                                 {{$class->class_name}}
+                                                                    </button>
+                                                        @endforeach
+                                            </dd>
+
+
+                            </dd>
+                        </div>
+                        @endforeach
         </dl>
         
     </div>

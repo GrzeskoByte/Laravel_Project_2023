@@ -22,7 +22,7 @@ class TeachersFactory extends Factory
         'last_name' => $this->faker->lastName,
         'email' => $this->faker->unique()->safeEmail,
         'phone' => $this->faker->phoneNumber,
-        'class_id'=>$this->faker->randomElement(Classes::pluck('id'))
+        // 'class_id'=>$this->faker->randomElement(Classes::pluck('id'))
         ];
     }
 }

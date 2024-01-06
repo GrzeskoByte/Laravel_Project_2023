@@ -16,10 +16,10 @@ class Teachers extends Model
         'last_name',
         'email',
         'phone',
-        'class_id'
+        // 'class_id'
     ];
 
     public function class (){
-        return $this->belongsTo(Classes::class,'class_id');
+        return $this->belongsToMany(Classes::class,'teachers_classes_pivot');
     }
 }
