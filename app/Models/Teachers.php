@@ -16,5 +16,10 @@ class Teachers extends Model
         'last_name',
         'email',
         'phone',
+        'class_id'
     ];
+
+    public function class (){
+        return $this->belongsTo(Classes::class,'class_id');
+    }
 }

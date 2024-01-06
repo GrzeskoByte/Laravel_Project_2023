@@ -30,11 +30,17 @@
                 </div>
                 @if(isset($student->id))
                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <a href="{{route('users.edit',['id'=>$student->id,'type'=>'teacher'])}}">
                 <button type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                        <a href="{{route('users.edit',['id'=>$student->id,'type'=>'teacher'])}}">
                             Edit
-                        </a>
-                    </button>
+                        </button>
+                    </a>
+
+                <a href="{{route('teacher.details',['id'=>$student->id])}}">
+                <button type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">
+                            View
+                        </button>
+                    </a>
                   
                     @if(isset($group_name[0]->id) && isset($current_class[0]->id))
                     <form id='delete_form' action="{{ route('students.destroy', ['id'=>$student->id, 'group_id'=>$group_name[0]->id, 'class_id'=>$current_class[0]->id]) }}" method="post">

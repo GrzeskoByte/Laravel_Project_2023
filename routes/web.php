@@ -30,5 +30,5 @@ Route::get('/students/{class_id}/{group_id}', [StudentsController::class,'index'
 Route::delete('/students/{id}/{class_id}/{group_id}/',StudentsController::class .'@destroy')->name('students.destroy');
 
 
-
 Route::get('/teachers', [TeachersController::class,"index"])->name('teachers');
+Route::get('/teachers/{id}/details', [TeachersController::class,'details'])->name('teacher.details');

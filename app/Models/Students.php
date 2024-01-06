@@ -17,7 +17,7 @@ class Students extends Model
         'email',
         'phone',
         'dob',
-        
+        'group_id' 
     ];
 
    
