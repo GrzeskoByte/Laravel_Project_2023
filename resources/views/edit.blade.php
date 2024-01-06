@@ -54,30 +54,7 @@
     </select>
     @endif
     
-@if($type=='teacher')
-<label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 ">Class</label>
-<select name="class_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
-  @if(isset($classes) )
-  
-      @foreach($classes as $class)
-      
-      @if($class->class_name)
-      @if($user->class_id == $class->id)
-        <option value="{{$class->id}}" selected>
-          {{$class->class_name}}
-        </option>
-      @else 
-      <option value="{{$class->id}}">
-        {{$class->class_name}}
-      </option>
-      @endif
-      @endif
-      @endforeach
-      
-      @endif 
-    </select>
-    @endif
   </div>
   
   <div class="mb-5">

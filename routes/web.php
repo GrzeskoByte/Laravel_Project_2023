@@ -34,3 +34,13 @@ Route::post('/create/{type}/form',[StudentsController::class,'makeCreation'])->n
 Route::get('/teachers', [TeachersController::class,"index"])->name('teachers');
 Route::get('/teachers/{id}/details', [TeachersController::class,'details'])->name('teacher.details');
 
+Route::get('/class/assign/',[TeachersController::class, 'assignClass'])->name('assign.class');
+Route::post('/class/assign/',[TeachersController::class, 'makeClassAssigement'])->name('assign.makeClass');
+
+Route::get('/class/create/',[TeachersController::class, 'createClass'])->name('create.class');
+Route::post('/class/create/',[TeachersController::class, 'makeClassCreation'])->name('create.makeClass');
+
+
+Route::get('/group/create/',[TeachersController::class,'createGroup'])->name('create.group');
+Route::post('/group/create/',[TeachersController::class,'makeGroupCreation'])->name('create.makeGroupCreation');
+

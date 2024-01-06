@@ -59,7 +59,7 @@ class StudentsController extends Controller
         
         if($type == 'teacher'){
             // add class id
-            $user = DB::table('teachers')->select('first_name','last_name','email','phone','id','class_id')->where('id', $id)->get();
+            $user = DB::table('teachers')->select('first_name','last_name','email','phone','id')->where('id', $id)->get();
         }
         
         return view('edit', ['id'=>$id,'user'=>$user[0], 'type'=>$type,'groups'=>$groups, 'after_action'=>$after_action, 'classes'=>$classes]); 

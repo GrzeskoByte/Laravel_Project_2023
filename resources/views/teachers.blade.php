@@ -11,11 +11,28 @@
 <div class="px-10 py-5 bg-slate-200">
 <div class="flex justify-between align-center">
     <h2 class="font-bold">All teachers from tenant</h2>
-    <a href="{{route('users.create',['type'=>'teacher'])}}">
-        <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
-            Add Teacher
-        </button>
-    </a>
+    <span>
+        <a href="{{route('assign.class')}}">
+            <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+                Assign class to teacher
+            </button>
+        </a>
+    <a href="{{route('create.class')}}">
+            <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+               Create class
+            </button>
+        </a>
+  <a href="{{route('create.group')}}">
+            <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+               Create group
+            </button>
+        </a>
+        <a href="{{route('users.create',['type'=>'teacher'])}}">
+            <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+                Add Teacher
+            </button>
+        </a>
+    </span>
 </div>
 </div>
 
