@@ -13,6 +13,6 @@ class TeachersClassesPivotSeeder extends Seeder
      */
     public function run(): void
     {
-        TeachersClasses::factory()->count(10)->create();
+        TeachersClasses::factory()->count(50)->create();
     }
 }

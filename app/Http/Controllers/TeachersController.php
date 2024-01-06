@@ -25,6 +25,16 @@ class TeachersController extends Controller
         $classIds = $allowed_groups->pluck('class_id')->toArray();
         $classes_assigned_to_teacher = Classes::whereIn('id', $classIds)->select('id', 'class_name')->get();
 
-        return view('teacherDetails',['teacher'=>$teacher,'assigned_classes'=>$classes_assigned_to_teacher]);
+        $groupsPerClass = collect();
+
+        foreach ($classes_assigned_to_teacher as $class) {
+            $groups = DB::table('groups')->select('group_name')->where('class_id', $class->id)->get();
+            $groupsPerClass->push(['class_name'=>$class->class_name,'groups'=>$groups]);
+           
+        }
+
+
+
+        return view('teacherDetails',['teacher'=>$teacher,'assigned_classes'=>$groupsPerClass]);
     }
 }
