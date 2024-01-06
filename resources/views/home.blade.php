@@ -30,7 +30,14 @@
         </span> 
     </h2>
 @else
-    <h2 class="font-bold">All students from tenant</h2>
+<div class="flex justify-between align-center">
+    <h2 class="font-bold ">All students from tenant</h2>
+    <a href="{{route('users.create',['type'=>'student'])}}">
+        <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+            Add Student
+        </button>
+    </a>
+</div>
 @endif  
 
   

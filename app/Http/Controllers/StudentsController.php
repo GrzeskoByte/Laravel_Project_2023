@@ -90,12 +90,41 @@ class StudentsController extends Controller
                     'last_name'  => $request->input('last_name'),
                     'email'      => $request->input('email'),
                     'phone'      => $request->input('phone'),
-                    'class_id' => $request->input('class_id'),
                 ]);
             }
 
         }
 
         return $this->edit($type,$id, true);
+    }
+
+
+    public function create($type){
+        $groups = DB::table('groups')->select('id','group_name','class_id')->get();
+        return view('create',['groups'=>$groups, 'type'=>$type]);
+    }
+
+    public function makeCreation(Request $request,$type){
+       if($type == 'student'){
+                Students::create([
+                    'first_name' => $request->input('first_name'),
+                    'last_name'  => $request->input('last_name'),
+                    'email'      => $request->input('email'),
+                    'phone'      => $request->input('phone'),
+                    'group_id'   => $request->input('group_id')
+                ]);
+        
+        }
+
+        if($type == 'teacher'){
+               Teachers::create([
+                    'first_name' => $request->input('first_name'),
+                    'last_name'  => $request->input('last_name'),
+                    'email'      => $request->input('email'),
+                    'phone'      => $request->input('phone'),
+                ]);
+        }
+
+        return $this->create($type);
     }
 }
