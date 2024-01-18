@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TeachersController;
@@ -44,3 +45,6 @@ Route::post('/class/create/',[TeachersController::class, 'makeClassCreation'])->
 Route::get('/group/create/',[TeachersController::class,'createGroup'])->name('create.group');
 Route::post('/group/create/',[TeachersController::class,'makeGroupCreation'])->name('create.makeGroupCreation');
 
+
+Route::get('/login',[AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/auth/login',[AuthController::class, 'login'])->name('login.login');
