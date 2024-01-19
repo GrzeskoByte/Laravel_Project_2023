@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role'
     ];
 
     /**
@@ -35,27 +35,27 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
     ];
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Role::class);
+    // }
 
-    public function viewAny(User $user)
-    {
-        return $user->hasRole('admin');
-    }
+    // public function viewAny(User $user)
+    // {
+    //     return $user->hasRole('admin');
+    // }
 
-    public function authorizeRoles($roles)
-    {
-        abort_unless($this->hasAnyRole($roles), 403);
-        return true;
-    }
+    // public function authorizeRoles($roles)
+    // {
+    //     abort_unless($this->hasAnyRole($roles), 403);
+    //     return true;
+    // }
 
-    public function hasAnyRole($roles)
-    {
-        if (is_array($roles)) {
-            return $this->roles()->whereIn('name', $roles)->exists();
-        }
-        return $this->roles()->where('name', $roles)->exists();
-    }
+    // public function hasAnyRole($roles)
+    // {
+    //     if (is_array($roles)) {
+    //         return $this->roles()->whereIn('name', $roles)->exists();
+    //     }
+    //     return $this->roles()->where('name', $roles)->exists();
+    // }
 }

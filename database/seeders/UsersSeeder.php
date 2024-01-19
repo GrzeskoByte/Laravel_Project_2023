@@ -22,10 +22,11 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
             'remember_token' => \Illuminate\Support\Str::random(10),
+            'role'=>"admin"
         ]);
 
-        $adminRole = Role::where('name', 'admin')->first();
-        $admin->roles()->attach($adminRole->id);
+        // $adminRole = Role::where('name', 'admin')->first();
+        // $admin->roles()->attach($adminRole->id);
 
         // Create some regular users
         User::factory()->count(10)->create();
