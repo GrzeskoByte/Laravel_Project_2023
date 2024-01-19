@@ -7,6 +7,11 @@ use App\Models\Teachers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
+use Inertia\Response;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 
 class StudentsController extends Controller
 {
@@ -27,7 +32,7 @@ class StudentsController extends Controller
             return view('home',['students'=> $students,  'groups'=>$groups, 'group_id'=>$group_id, 'group_name'=>$currentGroup,'classes' =>$classrooms,'current_class'=>$currentClass]);
     }
 
-    public function nonArgsIndex (){
+    public function nonArgsIndex () {
             $students = DB::table('students')->select('first_name', 'last_name','email','phone','id')->get(); 
             $groups = DB::table('groups')->select('id','group_name','class_id')->get();
             $classrooms = DB::table('classes')->select('class_name','id')->get();

@@ -33,7 +33,7 @@
 <div class="flex justify-between align-center">
     <h2 class="font-bold ">All students from tenant</h2>
     <a href="{{route('users.create',['type'=>'student'])}}">
-        <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+        <button  type="button"  class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
             Add Student
         </button>
     </a>
@@ -44,7 +44,7 @@
 </div>
 
 <section class="w-full justify-center flex bg-slate-800">
-    <ul class="flex-grow bg-slate-200 divide-y divide-gray-200 dark:divide-gray-700 mx-10 my-5">
+    <ul class="flex-grow bg-slate-200 divide-y divide-gray-200 mx-10 my-5">
         
         @foreach($students as $student)
         <li class="pb-3 sm:pb-4 w-full px-10 py-5">
@@ -58,15 +58,15 @@
                         {{$student->last_name}}
                     </p>
                     
-                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                    <p class="text-sm text-gray-500 truncate">
                         {{$student->email}}
                     </p>
                 </div>
 
                 @if(isset($student->id))
-                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                <div class="inline-flex items-center text-base font-semibold text-gray-900">
                     <a href="{{route('users.edit',['id'=>$student->id,'type'=>'student'])}}">
-                    <button  type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    <button  type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
                             Edit
                         </button>
                     </a>
@@ -76,7 +76,7 @@
                     <form id='delete_form' action="{{ route('students.destroy', ['id'=>$student->id, 'group_id'=>$group_name[0]->id, 'class_id'=>$current_class[0]->id]) }}" method="post">
                           @csrf
                           @method('DELETE')
-                         <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Remove</button>  
+                         <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Remove</button>  
                     </form>
                     @endif
                 </div>
